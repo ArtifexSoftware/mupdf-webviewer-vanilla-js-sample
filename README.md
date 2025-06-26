@@ -10,7 +10,7 @@ An example of [MuPDF WebViewer](https://webviewer.mupdf.com) with Vanilla JS.
 ## Before you start
 
 - Visit [https://webviewer.mupdf.com/account](https://webviewer.mupdf.com/account) to get a license key.
-- Copy the license key and replace `YOUR_LICENCE_KEY` in `index.js` with the license key.
+- Copy the license key and replace `YOUR_LICENSE_KEY` in `index.js` with the license key.
 
 ## Install
 

@@ -1,0 +1,14 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "cp -r node_modules/mupdf-webviewer/lib lib"
+  },
+  "author": "",
+  "license": "TRIAL/SUBSCRIPTION",
+  "description": "",
+  "dependencies": {
+    "mupdf-webviewer": "^0.4.0"
+  }
+}

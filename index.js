@@ -1,5 +1,11 @@
 import { initMuPDFWebViewer } from './node_modules/mupdf-webviewer/index.js';
 
+let mupdf;
+
+document.getElementById("js-button").innerHTML="Test Document Open API for remote URL";
+document.getElementById("js-button").onclick = documentOpenAPI;
+
+
 async function openRemotePDF(url, filename = 'file.pdf') {
   const response = await fetch(url);
   const blob = await response.blob();
@@ -9,7 +15,7 @@ async function openRemotePDF(url, filename = 'file.pdf') {
 
 async function openPDF(url, filename) {
     try {
-        const mupdf = await initMuPDFWebViewer(
+        mupdf = await initMuPDFWebViewer(
             '#viewer',
             url,
             {
@@ -24,6 +30,9 @@ async function openPDF(url, filename) {
     }
 }
 
+function documentOpenAPI() {
+    mupdf.document.open({url:'https://dijipiji.com/hello-world.pdf', filename:'hello-world.pdf'});
+}
 
 
 // open a local PDF

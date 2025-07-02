@@ -5,15 +5,14 @@ let mupdf;
 document.getElementById("js-button").innerHTML="Test Document Open API for remote URL";
 document.getElementById("js-button").onclick = documentOpenAPI;
 
-
-async function openRemotePDF(url, filename = 'file.pdf') {
-  const response = await fetch(url);
-  const blob = await response.blob();
-  const blobUrl = URL.createObjectURL(blob);
-  openPDF(blobUrl, filename);
+async function initWithBlobURL(url, filename = 'file.pdf') {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    initMuPDFWebViewerWithPDF(blobUrl, filename);
 }
 
-async function openPDF(url, filename) {
+async function initMuPDFWebViewerWithPDF(url, filename) {
     try {
         mupdf = await initMuPDFWebViewer(
             '#viewer',
@@ -35,9 +34,12 @@ function documentOpenAPI() {
 }
 
 
-// open a local PDF
-openPDF('/sample.pdf', 'sample.pdf')
+// init with a local PDF
+initMuPDFWebViewerWithPDF('/sample.pdf', 'sample.pdf')
 
-// or open a remote PDF
-// ensure CORS access control origin for the PDF file is permitted
-// openRemotePDF('https://dijipiji.com/sample.pdf', 'sample.pdf');
+// or init with a remote PDF
+// ensure CORS access control origin for the PDF file is permitted!
+// initMuPDFWebViewerWithPDF('https://dijipiji.com/sample.pdf', 'sample.pdf')
+
+// or init with PDF as blob URL
+// initWithBlobURL('/sample.pdf', 'sample.pdf');
